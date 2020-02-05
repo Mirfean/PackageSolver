@@ -21,7 +21,7 @@ public class Ball : MonoBehaviour
     void Update()
     {
         LockBallToPaddle();
-        LaunchBall();
+        //LaunchBall();
     }
 
     private void LaunchBall()

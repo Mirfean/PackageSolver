@@ -202,5 +202,12 @@ namespace Assets._Scripts.General
             }
             return null;
         }
+
+        public static Vector3 TouchPosToCameraPos(Touch touch)
+        {
+            Vector3 screenPos = new Vector3(touch.position.x, touch.position.y,0);
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+            return worldPos;
+        }
     }
 }

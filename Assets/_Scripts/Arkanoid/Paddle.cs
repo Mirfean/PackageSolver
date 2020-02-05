@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Assets._Scripts.General.BaseMethodsAndroid;
 
 public class Paddle : MonoBehaviour
 {
 
-    public float speed {get; private set; }
+    public float speed { get; private set; }
 
 
     // Start is called before the first frame update
@@ -18,7 +19,15 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void FollowFinger(Touch touch)
+    {
+        Debug.Log($"normal {touch.position.x}");
+        Debug.Log($"raw {touch.rawPosition.x}");
+        Vector3 temp = TouchPosToCameraPos(touch);
+        transform.SetPositionAndRotation(new Vector3(temp.x,transform.position.y,transform.position.z),transform.rotation);
     }
 
     public void MovePaddle(float fingerDirection)

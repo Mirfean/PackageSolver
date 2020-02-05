@@ -28,16 +28,10 @@ public class PaddleControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.touchCount > 0)
-        {
-            float? fingerDirection = MovingByTouch();
-            if (fingerDirection.HasValue)
-            {
-                Paddle.GetComponent<Paddle>().MovePaddle(fingerDirection.Value);
-            }
-            else { return; }
-        }
-        else { Paddle.GetComponent<Paddle>().StopPaddle(); }
+
+        MovingMethodFinger();
+        //MovingMethodLR();
+        
     }
 
 
@@ -69,7 +63,23 @@ public class PaddleControl : MonoBehaviour
         }
     }
 
-    private float? MovingByTouch()
+
+    private void MovingMethodLR()
+    {
+        if (Input.touchCount > 0)
+        {
+            float? fingerDirection = MovingByTouchLR();
+            if (fingerDirection.HasValue)
+            {
+                Paddle.GetComponent<Paddle>().MovePaddle(fingerDirection.Value);
+            }
+            else { return; }
+        }
+        else { Paddle.GetComponent<Paddle>().StopPaddle(); }
+    }
+
+
+    private float? MovingByTouchLR()
     {
         Touch? tempTouchCheck = GetTouchFromObject(bottomButton);
         //MovingByLeftAndRight();
@@ -81,4 +91,45 @@ public class PaddleControl : MonoBehaviour
         return null;
     }
 
+    private Touch? GetTouchFromBottomButton()
+    {
+        Touch? tempTouchCheck = GetTouchFromObject(bottomButton);
+        //MovingByLeftAndRight();
+        if (tempTouchCheck != null)
+        {
+            Touch tempTouchReal = (Touch)tempTouchCheck;
+            return tempTouchReal;
+        }
+        return null;
+    }
+
+    private void MovingMethodFinger()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch? fingerDirection = GetTouchFromBottomButton();
+            if (fingerDirection.HasValue)
+            {
+                Touch tempTouch = (Touch)fingerDirection;
+                MovingByFollowFinger(tempTouch);
+            }
+            else { return; }
+        }
+        else { Paddle.GetComponent<Paddle>().StopPaddle(); }
+    }
+
+    private void MovingByFollowFinger(Touch touch)
+    {
+        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+        //touchPosition.z = 0;
+        //Vector2 direction = (touchPosition - transform.position);
+        //Paddle.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y) * Paddle.GetComponent<Paddle>().speed;
+        Paddle.GetComponent<Paddle>().FollowFinger(touch);
+
+        if (touch.phase == TouchPhase.Ended)
+        {
+            Paddle.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+            
+    }
 }
