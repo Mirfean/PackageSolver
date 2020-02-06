@@ -115,7 +115,10 @@ public class PaddleControl : MonoBehaviour
             }
             else { return; }
         }
-        else { Paddle.GetComponent<Paddle>().StopPaddle(); }
+        else
+        {
+            Paddle.GetComponent<Paddle>().StopPaddle();
+        }
     }
 
     private void MovingByFollowFinger(Touch touch)
