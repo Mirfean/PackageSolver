@@ -8,7 +8,7 @@ using Assets._Scripts.Enums;
 
 namespace Assets._Scripts.General
 {
-    class BaseMethodsAndroid
+    public class BaseMethodsAndroid
     {
         public static GameObject GetObjectFromTouch()
         {
@@ -160,7 +160,6 @@ namespace Assets._Scripts.General
             return null;
         }
 
-
         public static bool CheckTouchThisObjectByTag(string ObjectTag)
         {
             if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
@@ -209,6 +208,56 @@ namespace Assets._Scripts.General
             Vector3 screenPos = new Vector3(touch.position.x, touch.position.y,0);
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
             return worldPos;
+        }
+
+
+        /*
+
+            Swipe functions
+            
+        */
+
+        public static float VerticalMovementDistance(Vector2 fingerDownPosition, Vector2 fingerUpPosition)
+        {
+            return Mathf.Abs(fingerDownPosition.y - fingerUpPosition.y);
+        }
+
+        public static float HorizontalMovementDistance(Vector2 fingerDownPosition, Vector2 fingerUpPosition)
+        {
+            return Mathf.Abs(fingerDownPosition.x - fingerUpPosition.x);
+        }
+
+        public static bool IsVerticalSwipe(Vector2 fingerDownPosition, Vector2 fingerUpPosition)
+        {
+            return VerticalMovementDistance(fingerDownPosition, fingerUpPosition) > HorizontalMovementDistance(fingerDownPosition, fingerUpPosition);
+        }
+
+        public static bool SwipeDistanceCheckMet(Vector2 fingerDownPosition, Vector2 fingerUpPosition, float minDistanceForSwipe)
+        {
+            return VerticalMovementDistance(fingerDownPosition, fingerUpPosition) > minDistanceForSwipe || HorizontalMovementDistance(fingerDownPosition, fingerUpPosition) > minDistanceForSwipe;
+        }
+
+        public static bool CheckMinDistance(Vector2 fingerDownPosition, Vector2 fingerUpPosition, float minDistanceForSwipe)
+        {
+            if (SwipeDistanceCheckMet(fingerDownPosition, fingerUpPosition, minDistanceForSwipe))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static SwipeDirection DetectSwipeDirection(Vector2 fingerDownPosition, Vector2 fingerUpPosition)
+        {
+            if (IsVerticalSwipe(fingerDownPosition, fingerUpPosition))
+            {
+                var direction = fingerDownPosition.y - fingerUpPosition.y > 0 ? SwipeDirection.Up : SwipeDirection.Down;
+                return direction;
+            }
+            else
+            {
+                var direction = fingerDownPosition.x - fingerUpPosition.x > 0 ? SwipeDirection.Right : SwipeDirection.Left;
+                return direction;
+            }
         }
     }
 }

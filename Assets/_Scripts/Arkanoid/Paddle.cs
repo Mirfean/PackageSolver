@@ -25,8 +25,8 @@ public class Paddle : MonoBehaviour
 
     public void FollowFinger(Touch touch)
     {
-        Debug.Log($"normal {touch.position.x}");
-        Debug.Log($"raw {touch.rawPosition.x}");
+        //Debug.Log($"normal {touch.position.x}");
+        //Debug.Log($"raw {touch.rawPosition.x}");
         Vector3 temp = TouchPosToCameraPos(touch);
         transform.SetPositionAndRotation(new Vector3(temp.x,transform.position.y,transform.position.z),transform.rotation);
     }
@@ -34,7 +34,7 @@ public class Paddle : MonoBehaviour
     //Moving paddle by finger touching bottom half of screen
     public void MovePaddle(float fingerDirection)
     {
-        Debug.Log("Finger ->" + fingerDirection);
+        //Debug.Log("Finger ->" + fingerDirection);
         
         float tempSpeed = 0;
         if (Screen.width / 2 < fingerDirection) { tempSpeed = speed; }
