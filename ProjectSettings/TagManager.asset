@@ -12,6 +12,13 @@ TagManager:
   - JoystickCan
   - LeftButtonArkanoid
   - RightButtonArkanoid
+  - PuzzleElement
+  - triangleOfSingleGrid
+  - UpTriangleOfSingleGrid
+  - LeftTriangleOfSingleGrid
+  - DownTriangleOfSingleGrid
+  - RightTriangleOfSingleGrid
+  - PuzzleMesh
   layers:
   - Default
   - TransparentFX

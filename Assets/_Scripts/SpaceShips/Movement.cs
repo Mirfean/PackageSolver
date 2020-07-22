@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         speed = 200;
-        Touchy = 0.15f;
+        Touchy = 0.01f;
         slowingCounter = 0;
         slower = 1f / Time.fixedDeltaTime;
     }
@@ -24,12 +24,12 @@ public class Movement : MonoBehaviour
 
     public void Update()
     {
-        
+        MovingByJoystick01();
     }
 
     public void FixedUpdate()
     {
-        MovingByJoystick01();
+        //MovingByJoystick01();
     }
 
 

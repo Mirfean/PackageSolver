@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/SpaceFight.unity
+    guid: ba9e05501ba45ae4e84f983391a63417
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/EQSolver.unity
+    guid: 95e444fd3efbe3146b83156d47631c74
+  - enabled: 1
+    path: Assets/Scenes/EQSolverUltimate.unity
+    guid: 9e724686b91e0bb41a521715792d893f
   m_configObjects: {}

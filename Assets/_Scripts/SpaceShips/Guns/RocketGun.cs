@@ -14,8 +14,8 @@ namespace Assets._Scripts.SpaceShips.Guns
             
             DamagePerBullet = 50;
             BulletPerShot = 1;
-            FireRate = 0.5f;
-            SpeedOfBullet = 30;
+            FireRate = 0.3f;
+            SpeedOfBullet = 80;
             Ammo = 15;
             bullet = GameObject.Find("RocketGunBullet");
         }

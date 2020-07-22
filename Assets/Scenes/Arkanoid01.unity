@@ -893,11 +893,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 971036759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d5f28714d4718746947fc84c038c29c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5678f6fe4b6f57744a9bf574c428213c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectSwipeOnlyAfterRelease: 1
-  minDistanceForSwipe: 20
 --- !u!1 &1157375655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1093,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241350062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 065fd2e47be9e884fbfcab9b01a5e744, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f0c9e6315ddf8446a599745f709ff93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1393838112
@@ -1260,7 +1258,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1833872757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adef4f93ea50aa34f8badbfd8bad49f5, type: 3}
+  m_Script: {fileID: 11500000, guid: f5656b5869c64994d8799d2572ed6e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!120 &1833872760
@@ -1311,8 +1309,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.00340271
+        value: 0.22834587
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1663,10 +1661,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.01
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 52972e5e8c43dea47b3d1f109f2e6774, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1

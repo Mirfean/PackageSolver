@@ -10,6 +10,11 @@ namespace Assets._Scripts.General
 {
     public class BaseMethodsAndroid
     {
+
+        public static string TargetName = "Target";
+        public static string SpriteName = "Sprite";
+        public static string PuzzleTag = "PuzzleElement";
+
         public static GameObject GetObjectFromTouch()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
@@ -40,8 +45,6 @@ namespace Assets._Scripts.General
                 {
                     Debug.Log($"Start touching {ObjectTag}");
                     return true;
-                    // Halve the size of the cube.
-                    //transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
                 }
                 if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
@@ -209,6 +212,24 @@ namespace Assets._Scripts.General
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
             return worldPos;
         }
+
+        public static bool CheckObjectAboveByTag(GameObject start, String targetTag)
+        {
+            if (Physics.Raycast(start.transform.position,Vector3.back, out RaycastHit hit))
+            {
+                //if (hit.transform.tag == ObjectTag)
+                if (hit.collider != null && hit.collider.gameObject.tag == targetTag)
+                {
+                    Debug.Log(hit.collider + " is Above!!!");
+                    return true;
+                }
+                Debug.Log("Nope");
+                return false;
+            }
+            //Debug.Log("Nope^2");
+            return false;
+        }
+
 
 
         /*

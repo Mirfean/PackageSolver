@@ -9,10 +9,10 @@ namespace Assets._Scripts.SpaceShips.Guns
 
         public BasicGun() : base()
         {
-            FireRate = 0.2f;
+            FireRate = 0.15f;
             BulletPerShot = 2;
             DamagePerBullet = 3;
-            SpeedOfBullet = 15;
+            SpeedOfBullet = 35;
         }
     }
 }

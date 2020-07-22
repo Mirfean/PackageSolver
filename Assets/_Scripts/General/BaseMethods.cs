@@ -44,5 +44,18 @@ namespace Assets._Scripts.General
             return false;
         }
 
+        public static GameObject GetChildByName(Transform Parent, string ChildName)
+        {
+            Debug.Log(Parent);
+            foreach(Transform children in Parent)
+            {
+                if (children.gameObject.name == ChildName)
+                {
+                    return children.gameObject;
+                }
+            }
+            return null;
+        }
+
     }
 }

@@ -11,6 +11,7 @@ namespace Assets._Scripts.Enums
         BeforeStart,
         InProgress,
         Rerun,
+        Win,
         GameOver
     }
 }
