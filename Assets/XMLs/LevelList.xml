@@ -1,0 +1,39 @@
+<xml>
+    <LevelList>
+        <Level>
+            <number>69</number>
+            <description>"Elo"</description>
+            <levelType>Triangle8x6</levelType>
+            <puzzles> 
+                <puzzle>PuzzleDuck</puzzle>
+                <puzzle>PuzzleXXX</puzzle>
+            </puzzles>
+        </Level>
+
+        <Level>
+            <number>123</number>
+            <description>"xD"</description>
+            <levelType>"Dupaaaa"</levelType>
+        </Level>
+
+        <Level>
+            <number>1</number>
+            <description>"Level 4 Test"</description>
+            <levelType>"SimpleBoxesTest"</levelType>
+            <fieldTypes>
+                <fieldType>"FULL"</fieldType> <fieldType>"NONE"</fieldType> <fieldType>"NONE"</fieldType> <fieldType>"NONE"</fieldType>
+                <fieldType>"FULL"</fieldType> <fieldType>"FULL"</fieldType> <fieldType>"FULL"</fieldType> <fieldType>"NONE"</fieldType>
+                <fieldType>"FULL"</fieldType> <fieldType>"FULL"</fieldType> <fieldType>"FULL"</fieldType> <fieldType>"NONE"</fieldType>
+                <fieldType>"FULL"</fieldType> <fieldType>"FULL"</fieldType> <fieldType>"FULL"</fieldType> <fieldType>"FULL"</fieldType>
+            </fieldTypes>
+            <puzzles>
+                <puzzle>PuzzleDuck</puzzle>
+                <puzzle>PuzzleBox1</puzzle>
+                <puzzle>PuzzleLine2</puzzle>
+                <puzzle>PuzzleLine2</puzzle>
+                <puzzle>PuzzleDuck</puzzle>
+            </puzzles>
+        </Level>
+    
+    </LevelList>
+</xml>

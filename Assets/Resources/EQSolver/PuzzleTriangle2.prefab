@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7186899414516393577
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3136439837005823996, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.3461216
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136439837005823996, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.17148854
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136439837005823996, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.08597823
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398176, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398176, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -775660021133669753, guid: 6e6bd1e94063b5345902dbfed6872e25,
+        type: 3}
+    - target: {fileID: 4477709807856398177, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398177, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398177, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398177, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398177, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398177, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398177, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398183, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.36565438
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398183, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.0032195437
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709807856398183, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.3732396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416686, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477709808520416687, guid: 0b67a535fe8d7594287d4c417a5c0eab,
+        type: 3}
+      propertyPath: m_Name
+      value: PuzzleTriangle2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4477709807856398183, guid: 0b67a535fe8d7594287d4c417a5c0eab, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 0b67a535fe8d7594287d4c417a5c0eab, type: 3}

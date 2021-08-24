@@ -28,21 +28,6 @@ public class Checker : MonoBehaviour
         }
     }
 
-    public FillStatus CheckPuzzleResult()
-    {
-        if (CheckObjectAboveByTag(this.gameObject, PuzzleTag))
-        {
-            Debug.Log("On");
-            Status = FillStatus.FULL;
-        }
-        else if (Status == FillStatus.FULL)
-        {
-            Debug.Log("Off");
-            Status = FillStatus.EMPTY;
-        }
-        return Status;
-    }
-
     private void Update()
     {
         //CheckPuzzle();

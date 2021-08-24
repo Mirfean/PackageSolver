@@ -57,5 +57,54 @@ namespace Assets._Scripts.General
             return null;
         }
 
+        public static float RoundToGrid(float gridSize, float pos)
+        {
+            if (Mathf.Abs(pos) < gridSize / 2)
+            {
+                return 0;
+            }
+            else if (pos < 0)
+            {
+                if (pos <= -gridSize * 1.5)
+                {
+
+                    return -2 * gridSize;
+                }
+                else return -gridSize;
+            }
+            else
+            {
+                if (pos > gridSize * 1.5)
+                {
+                    return 2 * gridSize;
+                }
+                else return gridSize;
+            }
+        }
+
+        public static float RoundToGridSupreme(float gridSize, float pos)
+        {
+            // float result = 0;
+            //if (Mathf.Abs(pos) < gridSize / 2)
+            //{
+            //    return pos;
+            //}
+
+            float temp = pos % gridSize;
+            float temp2 = pos / gridSize;
+
+            if (pos > 0)
+            {
+                return temp <= gridSize / 2 ? pos - temp : pos - temp + gridSize;
+            }
+            else
+            {
+                //result = temp < -gridSize / 2 ? pos - temp : ((int)temp2+1) * gridSize;
+                return Math.Abs(temp) <= gridSize / 2 ? pos - temp : pos - gridSize - temp;
+            }
+
+
+        }
+
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class WinLevelCan : MonoBehaviour
 {
+    public GameObject YouWinSign;
     public GameObject WinButtonObject;
     public GameObject EndBackground;
     public GameObject Text;
@@ -12,10 +13,8 @@ public class WinLevelCan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        WinButtonObject.SetActive(false);
-        EndBackground.SetActive(false);
-        //Change that to foreach later
-         
+        YouWinSign.SetActive(false);
+        //EndBackground.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,10 +23,12 @@ public class WinLevelCan : MonoBehaviour
         
     }
 
+    //Run after completing level
     public void WinAnnouncer()
     {
-        EndBackground.SetActive(true);
-        WinButtonObject.SetActive(true);
+        YouWinSign.SetActive(true);
+        //EndBackground.SetActive(true);
+        
     }
 
 }

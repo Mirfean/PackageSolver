@@ -37,7 +37,16 @@ public class PuzzleMaster : MonoBehaviour
         if (Grid.CheckAllGrids())
         {
             WinLevel();
+
+            //Make some magic here!!!
+            SaveSystem.SavePlayer();
+            
+
             Debug.Log("YEEEES");
+        }
+        else
+        {
+            Debug.Log("Not yet?");
         }
     }
 

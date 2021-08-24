@@ -18,9 +18,8 @@ namespace Assets._Scripts.General
         public static GameObject GetObjectFromTouch()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            RaycastHit hit;
             //Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 Debug.Log(hit.transform.name);
                 if (hit.collider != null)

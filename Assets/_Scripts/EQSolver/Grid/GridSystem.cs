@@ -8,29 +8,28 @@ using Assets._Scripts.Enums;
 
 public class GridSystem : MonoBehaviour
 {
-    public List<GridTemplate> ListGrid;
+    public List<_Tile> ListGrid;
     public bool Win;
 
     public Level level;
+
 
     // Start is called before the first frame update
     void Start()
     {
         Win = false;
-        level = LevelsGrid.FlamingWCzapceNaSankach;
+
+        //Level
+
         
-        Transform[] allChildren = GetComponentsInChildren<Transform>();
-        foreach (Transform child in allChildren)
-        {
-            //child.gameObject.SetActive(false);
-            if(child.gameObject.GetComponent<GridTemplate>() != null) ListGrid.Add(child.gameObject.GetComponent<GridTemplate>());
-        }
+        //Grid
+        List<Transform> ActiveTiles = new List<Transform>(GetComponentsInChildren<Transform>());
+        CreateListOfActiveGrids(ActiveTiles);
         CreateGridFromCode();
-        Debug.Log($"Grid elements: {ListGrid.Count}");
-        foreach (GridTemplate l in ListGrid)
-        {
-            //Debug.Log(l);
-        }
+        ListGrid.Clear();
+        CreateListOfActiveGrids(ActiveTiles);
+
+        //Puzzles
         
     }
 
@@ -47,7 +46,8 @@ public class GridSystem : MonoBehaviour
 
     public bool CheckAllGrids()
     {
-        foreach (GridTemplate singleGrid in ListGrid)
+        Debug.Log($"How much I have to check? {ListGrid.Count}");
+        foreach (_Tile singleGrid in ListGrid)
         {
             if(singleGrid.Status == FillStatus.EMPTY) return false;
         }
@@ -59,7 +59,7 @@ public class GridSystem : MonoBehaviour
     public void CheckAllGridAfterPuzzleMove()
     {
         
-        foreach(GridTemplate singleGrid in ListGrid)
+        foreach(_Tile singleGrid in ListGrid)
         {
             singleGrid.CheckFullness();
         }
@@ -67,11 +67,22 @@ public class GridSystem : MonoBehaviour
         
     }
 
+    //
+    public void CreateListOfActiveGrids(List<Transform> allChildren)
+    {
+        foreach (Transform child in allChildren)
+        {
+            //child.gameObject.SetActive(false);
+            if (child.gameObject.GetComponent<_Tile>() != null && child.gameObject.activeSelf) ListGrid.Add(child.gameObject.GetComponent<_Tile>());
+        }
+    }
+
+    //
     public void CreateGridFromCode()
     {
         foreach(FieldType temp in level.levelCode)
         {
-            foreach(GridTemplate GT in ListGrid)
+            foreach(_Tile GT in ListGrid)
             {
                 if(GT.FieldType == 0)
                 {
