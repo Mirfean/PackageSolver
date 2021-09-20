@@ -1,15 +1,13 @@
 ﻿using Assets._Scripts.Levels;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleSpawner : MonoBehaviour
 {
-    XmlTest xmlTest;
-    string pathOfPrefab;
+    private XmlTest xmlTest;
+    private string pathOfPrefab;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         string prefabName = "PuzzleDuck";
         xmlTest = new XmlTest();
@@ -21,9 +19,6 @@ public class PuzzleSpawner : MonoBehaviour
 
         _ = Instantiate(Resources.Load("EQSolver/PuzzleLine2")) as GameObject;
 
-
-
-
         /*foreach (prefabName in playerOwnPrefabNames)
         {
             var prefabName = playerOwnPrefabNames;
@@ -32,11 +27,7 @@ public class PuzzleSpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
-
-
-
 }

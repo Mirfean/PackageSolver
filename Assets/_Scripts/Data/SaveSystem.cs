@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine;
 
 //To save necessary stuff to binary file
 public static class SaveSystem
@@ -9,7 +9,7 @@ public static class SaveSystem
     public static void SavePlayer()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/YourSave.elo";
+        string path = Application.persistentDataPath + "/save.elo";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData data = new PlayerData();
@@ -20,7 +20,7 @@ public static class SaveSystem
 
     public static PlayerData LoadPlayer()
     {
-        string path = Application.persistentDataPath + "/saves.elo";
+        string path = Application.persistentDataPath + "/save.elo";
         Debug.Log(path);
         if (File.Exists(path))
         {
@@ -28,6 +28,10 @@ public static class SaveSystem
             FileStream stream = new FileStream(path, FileMode.Open);
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
+            foreach (var x in data.UnlockedLevels)
+            {
+                Debug.Log($"Key { x.Key} + { x.Value}");
+            }
             stream.Close();
             return data;
         }

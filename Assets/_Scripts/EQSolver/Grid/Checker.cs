@@ -1,6 +1,4 @@
 ﻿using Assets._Scripts.EQSolver;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static Assets._Scripts.General.BaseMethodsAndroid;
 
@@ -11,7 +9,7 @@ public class Checker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void CheckPuzzle()
@@ -21,7 +19,7 @@ public class Checker : MonoBehaviour
             Debug.Log("On");
             Status = FillStatus.FULL;
         }
-        else if(Status == FillStatus.FULL)
+        else if (Status == FillStatus.FULL)
         {
             Debug.Log("Off");
             Status = FillStatus.EMPTY;

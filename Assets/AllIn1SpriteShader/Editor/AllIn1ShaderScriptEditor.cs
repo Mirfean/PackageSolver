@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(AllIn1Shader)), CanEditMultipleObjects]
 public class AllIn1ShaderScriptEditor : Editor

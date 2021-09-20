@@ -1,7 +1,5 @@
 ﻿using Assets._Scripts.Enums;
 using Assets._Scripts.EQSolver;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class _Tile : MonoBehaviour

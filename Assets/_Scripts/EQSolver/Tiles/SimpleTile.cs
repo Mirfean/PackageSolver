@@ -1,11 +1,9 @@
 ﻿using Assets._Scripts.EQSolver;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SimpleTile : _Tile
 {
-    //public _SingleGridStatus Status { get; private set; }
     public List<Checker> singleGridCheckers;
     // Start is called before the first frame update
     void Start()
@@ -23,16 +21,10 @@ public class SimpleTile : _Tile
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override bool CheckFullness()
     {
         bool result = true;     //Result for GridSystem
-        foreach(Checker checker in singleGridCheckers)
+        foreach (Checker checker in singleGridCheckers)
         {
             checker.CheckPuzzle();
             if (checker.Status != FillStatus.FULL && result == true)
@@ -55,7 +47,7 @@ public class SimpleTile : _Tile
     {
         foreach (Checker checker in singleGridCheckers)
         {
-            if(checker.Status == FillStatus.EMPTY)
+            if (checker.Status == FillStatus.EMPTY)
             {
                 Status = FillStatus.EMPTY;
                 return false;

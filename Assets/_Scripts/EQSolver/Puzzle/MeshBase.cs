@@ -1,18 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(MeshCollider))]
 public class MeshBase : MonoBehaviour
 {
     public Mesh mesh;
 
-    Vector3[] vertices;
-    int[] triangles;
+    private Vector3[] vertices;
+    private int[] triangles;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
@@ -20,10 +17,9 @@ public class MeshBase : MonoBehaviour
         CreateShape();
         UpdateMesh();
         this.GetComponentInParent<MeshCollider>().sharedMesh = mesh;
-
     }
 
-    void CreateShape()
+    private void CreateShape()
     {
         vertices = new Vector3[]
         {
@@ -44,9 +40,5 @@ public class MeshBase : MonoBehaviour
 
         mesh.vertices = vertices;
         mesh.triangles = triangles;
-
-
     }
-
-
 }

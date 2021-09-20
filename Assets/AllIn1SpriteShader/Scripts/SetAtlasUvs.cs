@@ -25,7 +25,7 @@ public class SetAtlasUvs : MonoBehaviour
         if (updateEveryFrame)
         {
             GetAndSetUVs();
-        }       
+        }
     }
 
     public void GetAndSetUVs()
@@ -92,9 +92,9 @@ public class SetAtlasUvs : MonoBehaviour
         {
             if (spriteRender.sprite == null)
             {
-                #if UNITY_EDITOR
+#if UNITY_EDITOR
                 EditorUtility.DisplayDialog("No sprite found", "The object: " + gameObject.name + ",has Sprite Renderer but no sprite", "Ok");
-                #endif
+#endif
                 return false;
             }
             if (render == null) render = GetComponent<Renderer>();
@@ -107,17 +107,63 @@ public class SetAtlasUvs : MonoBehaviour
                 uiImage = GetComponent<Image>();
                 if (uiImage != null)
                 {
-                    #if UNITY_EDITOR
+#if UNITY_EDITOR
                     Debug.Log("You added the SetAtlasUv component to: " + gameObject.name + " that has a UI Image\n " +
                     "This SetAtlasUV component will only work properly on UI Images if each Image has a DIFFERENT material instance (See Documentation Sprite Atlases section for more info)");
-                    #endif
+                /* Unmerged change from project 'Assembly-CSharp.Player'
+                Before:
+
+/* Unmerged change from project 'Assembly-CSharp.Player'
+Before:
+
+/* Unmerged change from project 'Assembly-CSharp.Player'
+Before:
+#endif
+                After:
+#endif
+                    */
+#endif
+                After:
+                After:
+#endif
+                After:
+                    */
+#endif
+                After:
+#endif
+                    */
+
+#endif
                 }
                 else
                 {
-                    #if UNITY_EDITOR
+#if UNITY_EDITOR
                     EditorUtility.DisplayDialog("No Valid Renderer Component Found", "Looks like you have no Sprite Renderer or UI Image on: '"
                         + gameObject.name + "'\n This SetAtlasUV component will now get destroyed", "Ok");
-                    #endif
+                /* Unmerged change from project 'Assembly-CSharp.Player'
+                Before:
+
+/* Unmerged change from project 'Assembly-CSharp.Player'
+Before:
+
+/* Unmerged change from project 'Assembly-CSharp.Player'
+Before:
+#endif
+                After:
+#endif
+                    */
+#endif
+                After:
+                After:
+#endif
+                After:
+                    */
+#endif
+                After:
+#endif
+                    */
+
+#endif
                     DestroyImmediate(this);
                     return false;
                 }
@@ -128,11 +174,34 @@ public class SetAtlasUvs : MonoBehaviour
 
         if (spriteRender == null && uiImage == null)
         {
-            #if UNITY_EDITOR
-            EditorUtility.DisplayDialog("No Sprite Renderer", "Looks like you are missing a Sprite Renderer on: '" 
+#if UNITY_EDITOR
+            EditorUtility.DisplayDialog("No Sprite Renderer", "Looks like you are missing a Sprite Renderer on: '"
                 + gameObject.name + "'\n SetAtlasUvs only works with Sprite Renderers since it needs a 'sharedMaterial' property that UI images lack." +
                 " This SetAtlasUV component will now get destroyed", "Ok");
-            #endif
+        /* Unmerged change from project 'Assembly-CSharp.Player'
+        Before:
+
+/* Unmerged change from project 'Assembly-CSharp.Player'
+Before:
+
+/* Unmerged change from project 'Assembly-CSharp.Player'
+Before:
+#endif
+        After:
+#endif
+            */
+#endif
+        After:
+        After:
+#endif
+        After:
+            */
+#endif
+        After:
+#endif
+            */
+
+#endif
             DestroyImmediate(this);
             return false;
         }

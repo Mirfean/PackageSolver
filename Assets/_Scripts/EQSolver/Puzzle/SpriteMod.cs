@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpriteMod : MonoBehaviour
 {
     bool doubleTap;
     float lastTap, tapTime;
- 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,23 +30,34 @@ public class SpriteMod : MonoBehaviour
     {
         Debug.Log("ChangeRotation");
         if (doubleTap)
-            {
-                RotateSprite();
-                doubleTap = false;
-            }
-        
+        {
+            RotateSprite();
+            doubleTap = false;
+
+            /* Unmerged change from project 'Scripts.Player'
+            Before:
+                        }
+
+                    else
+            After:
+                    }
+
+                    else
+            */
+        }
+
         else
-            {
-                doubleTap = true;
-                lastTap = Time.time;
-            }
+        {
+            doubleTap = true;
+            lastTap = Time.time;
+        }
     }
 
     void RotateSprite()
     {
         Debug.Log("RotateSprite");
         transform.Rotate(new Vector3(0, 0, -90));
-        if(transform.rotation.z <= -360) { transform.Rotate(new Vector3(0, 0, 360)); }
+        if (transform.rotation.z <= -360) { transform.Rotate(new Vector3(0, 0, 360)); }
     }
 
 }

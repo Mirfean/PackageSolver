@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using System.Linq;
+using UnityEngine;
 
 [CanEditMultipleObjects]
 public class AllIn1SpriteShaderStencil : ShaderGUI

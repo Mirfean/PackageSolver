@@ -6,12 +6,8 @@ TagManager:
   tags:
   - attackButton
   - bullet
-  - SecondAttackButton
-  - PrimaryAttackButton
   - JoystickStoper
   - JoystickCan
-  - LeftButtonArkanoid
-  - RightButtonArkanoid
   - PuzzleElement
   - triangleOfSingleGrid
   - UpTriangleOfSingleGrid
@@ -19,6 +15,8 @@ TagManager:
   - DownTriangleOfSingleGrid
   - RightTriangleOfSingleGrid
   - PuzzleMesh
+  - LevelButton
+  - MenuButton
   layers:
   - Default
   - TransparentFX

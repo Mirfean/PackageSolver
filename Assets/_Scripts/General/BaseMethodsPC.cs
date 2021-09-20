@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿
+/* Unmerged change from project 'Scripts.Player'
+Before:
+using System;
+After:
 using Assets._Scripts.Enums;
+using System;
+*/
+using Assets._Scripts.Enums;
+using System;
+using UnityEngine;
 
 namespace Assets._Scripts.General
 {

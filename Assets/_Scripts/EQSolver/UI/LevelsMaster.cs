@@ -1,19 +1,16 @@
 ﻿using Assets._Scripts.Data;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static Assets._Scripts.General.BaseMethodsAndroid;
 
 /// <summary>
-/// 
+///
 /// </summary>
 public class LevelsMaster : MonoBehaviour
 {
-
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         CurrentGameData.currentScene = SceneManager.GetActiveScene().name;
         if (!LevelsDataFromXml.LevelsList.Any<Level>())
@@ -44,8 +41,8 @@ public class LevelsMaster : MonoBehaviour
         //CurrentGameData.currentScene = currentScene;
     }
     */
-    
-    void Update()
+
+    private void Update()
     {
         if (Input.touchCount > 0 && (CheckTouchThisObjectByTagDeluxe("MenuButton") || CheckTouchThisObjectByTagDeluxe("LevelButton")))
         {
@@ -58,13 +55,11 @@ public class LevelsMaster : MonoBehaviour
             {
                 case TouchPhase.Began:
                     {
-
                     }
                     break;
 
                 case TouchPhase.Stationary:
                     {
-
                     }
                     break;
 
@@ -74,18 +69,12 @@ public class LevelsMaster : MonoBehaviour
                         button.TaskButton();
                     }
                     break;
-
             }
-                
         }
     }
 
-
     public void ChangeLevel(string x)
     {
-
         SceneManager.LoadScene(x);
     }
-
-
 }

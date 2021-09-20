@@ -3,8 +3,6 @@ using Assets._Scripts.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
@@ -13,25 +11,20 @@ using UnityEngine;
 namespace Assets._Scripts.Levels
 {
     [XmlRoot("Level")]
-    class XmlTest
+    internal class XmlTest
     {
-        XmlDocument xmlDoc = new XmlDocument();
-        XDocument xDoc = XDocument.Load(Application.persistentDataPath + "/LevelList.xml");
-        //string pathToFile = ;
+        private XmlDocument xmlDoc = new XmlDocument();
+        private XDocument xDoc = XDocument.Load(Application.persistentDataPath + "/LevelList.xml");
 
-        //doc.LoadXml(Application.dataPath + "/XMLs/LevelList.xml");
         [XmlArray("number")]
-        int number;
+        private int number;
 
         [XmlElement("")]
-        string text;
+        private string text;
 
+        private LevelType levelType;
 
-        LevelType levelType;
-
-
-        List<string> puzzles;
-
+        private List<string> puzzles;
 
         public XmlTest()
         {
@@ -42,20 +35,23 @@ namespace Assets._Scripts.Levels
             //Debug.Log(elem2);
             XElement levelList = xDoc.Element("AllLevels").Element("LevelsList");
 
-
             //Level(int n, LevelType lT, string descript, FieldType[] fields, List<String> puzzles)
-            foreach (XElement x in levelList.Elements("Level"))
+            if (LevelsInfo.ListOfLevels.Count == 0)
             {
-                LevelsInfo.ListOfLevels.Add(int.Parse(x.Element("id").Value), 
-                    new Level(
-                    int.Parse(x.Element("id").Value),
-                    (LevelType) Enum.Parse(typeof(LevelType), x.Element("levelType").Value, true),
-                    x.Element("description").Value,
-                    GetFieldTypes(x),
-                    GetPuzzles(x)
+                foreach (XElement x in levelList.Elements("Level"))
+                {
+                    Debug.Log("number of elements " + LevelsInfo.ListOfLevels.Count());
+                    LevelsInfo.ListOfLevels.Add(int.Parse(x.Element("id").Value),
+                        new Level(
+                        int.Parse(x.Element("id").Value),
+                        (LevelType)Enum.Parse(typeof(LevelType), x.Element("levelType").Value, true),
+                        x.Element("description").Value,
+                        GetFieldTypes(x),
+                        GetPuzzles(x)
 
-                    ));
-
+                        ));
+                    Debug.Log(LevelsInfo.ListOfLevels);
+                }
             }
         }
 
@@ -68,7 +64,7 @@ namespace Assets._Scripts.Levels
 
             foreach (XElement xEle in x.Element("fieldsType").Descendants())
             {
-                temp.Add( (FieldType) Enum.Parse(typeof(FieldType),xEle.Value));
+                temp.Add((FieldType)Enum.Parse(typeof(FieldType), xEle.Value));
             }
             Debug.Log("List of FieldTypes " + temp.Count);
             return temp;
@@ -84,6 +80,5 @@ namespace Assets._Scripts.Levels
             Debug.Log("List of puzzles " + temp.Count);
             return temp;
         }
-
     }
 }

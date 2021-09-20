@@ -11,13 +11,13 @@ public class AllIn1Shader : MonoBehaviour
 {
     private Material currMaterial, prevMaterial;
     private bool matAssigned = false, destroyed = false;
-    private enum AfterSetAction { Clear, CopyMaterial, Reset};
+    private enum AfterSetAction { Clear, CopyMaterial, Reset };
 
 #if UNITY_EDITOR
     private static float timeLastReload = -1f;
     private void Start()
     {
-        if(timeLastReload < 0) timeLastReload = Time.time;
+        if (timeLastReload < 0) timeLastReload = Time.time;
     }
 
     private void Update()
@@ -263,7 +263,7 @@ public class AllIn1Shader : MonoBehaviour
 
     public void SaveMaterial()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         string path = "Assets/AllIn1SpriteShader/Materials/";
         if (PlayerPrefs.HasKey("All1ShaderMaterials")) path = PlayerPrefs.GetString("All1ShaderMaterials") + "/";
         if (!System.IO.Directory.Exists(path))
@@ -280,7 +280,7 @@ public class AllIn1Shader : MonoBehaviour
         }
         else DoSaving(fullPath);
         SetSceneDirty();
-        #endif
+#endif
     }
     private void SaveMaterialWithOtherName(string path, int i = 1)
     {
@@ -300,7 +300,7 @@ public class AllIn1Shader : MonoBehaviour
 
     private void DoSaving(string fileName)
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         bool rendererExists = false;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         Material matToSave = null;
@@ -339,25 +339,64 @@ public class AllIn1Shader : MonoBehaviour
             Image img = GetComponent<Image>();
             img.material = createdMat;
         }
-        #endif
+#endif
     }
 
     private void SetSceneDirty()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         if (!Application.isPlaying) EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
-        #endif
+        /* Unmerged change from project 'Assembly-CSharp.Player'
+        Before:
+
+/* Unmerged change from project 'Assembly-CSharp.Player'
+Before:
+#endif
+    After:
+    After:
+#endif
+    After:
+        */
+#endif
+        After:
+#endif
+        */
+
+#endif
     }
 
     private void MissingRenderer()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         EditorUtility.DisplayDialog("Missing Renderer", "This GameObject (" +
                             gameObject.name + ") has no Sprite Renderer or UI Image component. This AllIn1Shader component will be removed.", "Ok");
         destroyed = true;
         DestroyImmediate(this);
         return;
-        #endif
+    /* Unmerged change from project 'Assembly-CSharp.Player'
+    Before:
+
+/* Unmerged change from project 'Assembly-CSharp.Player'
+Before:
+
+/* Unmerged change from project 'Assembly-CSharp.Player'
+Before:
+#endif
+    After:
+#endif
+        */
+#endif
+    After:
+    After:
+#endif
+    After:
+        */
+#endif
+    After:
+#endif
+        */
+
+#endif
     }
 
     public void ToggleSetAtlasUvs(bool activate)

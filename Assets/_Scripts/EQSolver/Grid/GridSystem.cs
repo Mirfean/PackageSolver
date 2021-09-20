@@ -1,10 +1,8 @@
-﻿using System.Collections;
+﻿using Assets._Scripts.Data;
+using Assets._Scripts.Enums;
+using Assets._Scripts.EQSolver;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets._Scripts.General;
-using Assets._Scripts.EQSolver;
-using Assets._Scripts.Data;
-using Assets._Scripts.Enums;
 
 public class GridSystem : MonoBehaviour
 {
@@ -13,15 +11,13 @@ public class GridSystem : MonoBehaviour
 
     public Level level;
 
-
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Win = false;
 
         //Level
 
-        
         //Grid
         List<Transform> ActiveTiles = new List<Transform>(GetComponentsInChildren<Transform>());
         CreateListOfActiveGrids(ActiveTiles);
@@ -30,18 +26,15 @@ public class GridSystem : MonoBehaviour
         CreateListOfActiveGrids(ActiveTiles);
 
         //Puzzles
-        
     }
 
     private void OnLevelWasLoaded(int level)
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     public bool CheckAllGrids()
@@ -49,7 +42,7 @@ public class GridSystem : MonoBehaviour
         Debug.Log($"How much I have to check? {ListGrid.Count}");
         foreach (_Tile singleGrid in ListGrid)
         {
-            if(singleGrid.Status == FillStatus.EMPTY) return false;
+            if (singleGrid.Status == FillStatus.EMPTY) return false;
         }
         return true;
     }
@@ -58,16 +51,12 @@ public class GridSystem : MonoBehaviour
     //if all checker == FULL then SingleGrid == Full
     public void CheckAllGridAfterPuzzleMove()
     {
-        
-        foreach(_Tile singleGrid in ListGrid)
+        foreach (_Tile singleGrid in ListGrid)
         {
             singleGrid.CheckFullness();
         }
-        
-        
     }
 
-    //
     public void CreateListOfActiveGrids(List<Transform> allChildren)
     {
         foreach (Transform child in allChildren)
@@ -77,14 +66,13 @@ public class GridSystem : MonoBehaviour
         }
     }
 
-    //
     public void CreateGridFromCode()
     {
-        foreach(FieldType temp in level.levelCode)
+        foreach (FieldType temp in level.levelCode)
         {
-            foreach(_Tile GT in ListGrid)
+            foreach (_Tile GT in ListGrid)
             {
-                if(GT.FieldType == 0)
+                if (GT.FieldType == 0)
                 {
                     //Debug.Log($"{GT} field type {GT.FieldType} is changing to {temp}");
                     GT.FieldType = temp;
@@ -94,5 +82,4 @@ public class GridSystem : MonoBehaviour
             }
         }
     }
-
 }

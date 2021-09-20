@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using Assets._Scripts.Enums;
 
 namespace Assets._Scripts.General
 {
@@ -13,7 +8,6 @@ namespace Assets._Scripts.General
         //Initialize
         //static FightManager FM = GameObject.Find("FightManager").GetComponent<FightManager>();
 
-        
         public static String CheckObjectTag()
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
@@ -47,7 +41,7 @@ namespace Assets._Scripts.General
         public static GameObject GetChildByName(Transform Parent, string ChildName)
         {
             Debug.Log(Parent);
-            foreach(Transform children in Parent)
+            foreach (Transform children in Parent)
             {
                 if (children.gameObject.name == ChildName)
                 {
@@ -67,7 +61,6 @@ namespace Assets._Scripts.General
             {
                 if (pos <= -gridSize * 1.5)
                 {
-
                     return -2 * gridSize;
                 }
                 else return -gridSize;
@@ -82,29 +75,11 @@ namespace Assets._Scripts.General
             }
         }
 
-        public static float RoundToGridSupreme(float gridSize, float pos)
+        public static float RoundValue(float gridSize, float pos)
         {
-            // float result = 0;
-            //if (Mathf.Abs(pos) < gridSize / 2)
-            //{
-            //    return pos;
-            //}
-
-            float temp = pos % gridSize;
-            float temp2 = pos / gridSize;
-
-            if (pos > 0)
-            {
-                return temp <= gridSize / 2 ? pos - temp : pos - temp + gridSize;
-            }
-            else
-            {
-                //result = temp < -gridSize / 2 ? pos - temp : ((int)temp2+1) * gridSize;
-                return Math.Abs(temp) <= gridSize / 2 ? pos - temp : pos - gridSize - temp;
-            }
-
-
+            float modulus = pos % gridSize;
+            if (modulus <= gridSize / 2) return pos - modulus;
+            return pos > 0 ? pos - modulus + gridSize : pos - modulus - gridSize;
         }
-
     }
 }

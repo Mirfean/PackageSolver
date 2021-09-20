@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class WinLevelCan : MonoBehaviour
 {
@@ -20,7 +17,7 @@ public class WinLevelCan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //Run after completing level
@@ -28,7 +25,7 @@ public class WinLevelCan : MonoBehaviour
     {
         YouWinSign.SetActive(true);
         //EndBackground.SetActive(true);
-        
+
     }
 
 }

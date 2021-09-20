@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Demo2AutoScroll : MonoBehaviour
@@ -30,7 +29,7 @@ public class Demo2AutoScroll : MonoBehaviour
     IEnumerator ScrollElements()
     {
         int i = 0;
-        while(true)
+        while (true)
         {
             if (children[i].gameObject == gameObject)
             {

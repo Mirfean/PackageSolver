@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿
+/* Unmerged change from project 'Scripts.Player'
+Before:
+using System;
+After:
 using Assets._Scripts.Enums;
+using System;
+*/
+using Assets._Scripts.Enums;
+using System;
+using UnityEngine;
 
 namespace Assets._Scripts.General
 {
@@ -86,7 +90,7 @@ namespace Assets._Scripts.General
         {
             if (Input.touchCount > 0)
             {
-                foreach(Touch touch in Input.touches)
+                foreach (Touch touch in Input.touches)
                 {
                     Ray ray = Camera.main.ScreenPointToRay(touch.position);
                     RaycastHit hit;
@@ -106,7 +110,7 @@ namespace Assets._Scripts.General
                         return false;
                     }
                 }
-                
+
             }
             Debug.Log("Touchn't");
             return false;
@@ -207,14 +211,14 @@ namespace Assets._Scripts.General
         //return Vector of touch(real for us)
         public static Vector3 TouchPosToCameraPos(Touch touch)
         {
-            Vector3 screenPos = new Vector3(touch.position.x, touch.position.y,0);
+            Vector3 screenPos = new Vector3(touch.position.x, touch.position.y, 0);
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
             return worldPos;
         }
 
         public static bool CheckObjectAboveByTag(GameObject start, String targetTag)
         {
-            if (Physics.Raycast(start.transform.position,Vector3.back, out RaycastHit hit))
+            if (Physics.Raycast(start.transform.position, Vector3.back, out RaycastHit hit))
             {
                 //if (hit.transform.tag == ObjectTag)
                 if (hit.collider != null && hit.collider.gameObject.tag == targetTag)

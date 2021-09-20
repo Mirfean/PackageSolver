@@ -2,11 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
 
@@ -16,14 +11,15 @@ namespace Assets._Scripts.Data
     [Serializable, XmlType("AllLevels")]
     public class LevelsDataFromXml
     {
-        static XmlTest xmlTest;
+        private static XmlTest xmlTest;
+
         //Contains all levels data
         //[XmlArray("Levels"), XmlArrayItem("Level")]
         //[XmlArrayItem("Level")]
         [XmlArray("Levels")]
         static public List<Level> LevelsList = new List<Level>();
-        
-        string pathToFile = Application.persistentDataPath + "/LevelList.xml";
+
+        private string pathToFile = Application.persistentDataPath + "/LevelList.xml";
 
         //To serialize
         //XmlDocument xmlDoc = new XmlDocument();
@@ -38,19 +34,15 @@ namespace Assets._Scripts.Data
             serializer.Serialize(stream, this);
         }
 
-
         public static LevelsDataFromXml Load(string path)
         {
             xmlTest = new XmlTest();
-            Debug.Log("xmlTest "+ LevelsInfo.ListOfLevels);
+            Debug.Log("xmlTest " + LevelsInfo.ListOfLevels);
 
             Debug.Log("Loading levels...");
             var serializer = new XmlSerializer(typeof(LevelsDataFromXml));
-            Debug.Log("serializer " + serializer);
             var stream = new FileStream(path, FileMode.Open);
-            Debug.Log("stream "+ stream);
             LevelsDataFromXml xyz = serializer.Deserialize(stream) as LevelsDataFromXml;
-            Debug.Log("xyz " + xyz);
             return xyz;
         }
 
@@ -74,13 +66,8 @@ namespace Assets._Scripts.Data
             catch
             {
                 throw new InvalidOperationException($"There is not a level with that id and we contain {LevelsList.Count.ToString()} levels");
-                
             }
             return level;
         }
-
-
-
-
     }
 }

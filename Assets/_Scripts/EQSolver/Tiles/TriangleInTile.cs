@@ -1,8 +1,6 @@
 ﻿using Assets._Scripts.Enums;
 using Assets._Scripts.EQSolver;
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Schema;
 using UnityEngine;
 
 public class TriangleInTile : MonoBehaviour
@@ -13,11 +11,11 @@ public class TriangleInTile : MonoBehaviour
     private bool activationParam;
     public bool ActivationParam
     {
-        get { return this.activationParam;}
+        get { return this.activationParam; }
 
         set
         {
-            if(activationParam != value)
+            if (activationParam != value)
             {
                 activationParam = value;
                 ChangeActiveOfGO();
@@ -77,7 +75,7 @@ public class TriangleInTile : MonoBehaviour
         //Debug.Log($"{this} is changing to {ActivationParam}");
         transform.gameObject.SetActive(ActivationParam);
     }
-    
+
     public void ChangeStatusOfFullness(bool x)
     {
         if (x)

@@ -27,7 +27,7 @@ public class DemoCircleExpositor : MonoBehaviour
         {
             float angle = i * Mathf.PI * 2f / count;
             Vector3 newPos = new Vector3(Mathf.Sin(angle) * radius, iniY, -Mathf.Cos(angle) * radius);
-            items[i].position = newPos; 
+            items[i].position = newPos;
         }
     }
 

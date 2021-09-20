@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using System.Linq;
+using UnityEngine;
 
 [CanEditMultipleObjects]
 public class AllIn1SpriteShader : ShaderGUI
@@ -100,10 +100,10 @@ public class AllIn1SpriteShader : ShaderGUI
             EditorGUILayout.BeginVertical(style);
             {
                 GUILayout.Label("Look for 'ShaderLab: Blending' if you don't know what this is", style);
-                srcMode = (UnityEngine.Rendering.BlendMode) srcM.floatValue;
-                dstMode = (UnityEngine.Rendering.BlendMode) dstM.floatValue;
-                srcMode = (UnityEngine.Rendering.BlendMode) EditorGUILayout.EnumPopup("SrcMode", srcMode);
-                dstMode = (UnityEngine.Rendering.BlendMode) EditorGUILayout.EnumPopup("DstMode", dstMode);
+                srcMode = (UnityEngine.Rendering.BlendMode)srcM.floatValue;
+                dstMode = (UnityEngine.Rendering.BlendMode)dstM.floatValue;
+                srcMode = (UnityEngine.Rendering.BlendMode)EditorGUILayout.EnumPopup("SrcMode", srcMode);
+                dstMode = (UnityEngine.Rendering.BlendMode)EditorGUILayout.EnumPopup("DstMode", dstMode);
                 srcM.floatValue = (float)(srcMode);
                 dstM.floatValue = (float)(dstMode);
             }

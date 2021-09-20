@@ -1,7 +1,5 @@
 ﻿using Assets._Scripts.Enums;
 using Assets._Scripts.EQSolver;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,7 +36,7 @@ public class Tile4Triangles : _Tile
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public override void AdaptByFieldType()
@@ -107,7 +105,7 @@ public class Tile4Triangles : _Tile
         {
             transform.gameObject.SetActive(false);
 
-        
+
 
             return;
         }
@@ -117,7 +115,7 @@ public class Tile4Triangles : _Tile
             //Debug.Log($"Changing {x}triangles of {this}");
             ActivationOfTriangle(c);
         }
-        foreach(TriangleInTile triangle in CurrentTriangles)
+        foreach (TriangleInTile triangle in CurrentTriangles)
         {
             triangle.ChangeActiveOfGO();
         }
@@ -152,7 +150,7 @@ public class Tile4Triangles : _Tile
                     CurrentTriangles.Find(i => i.Placement == TriangleType.DOWN).ActivationParam = true;
                     break;
                 }
-            
+
             default:
                 break;
         }

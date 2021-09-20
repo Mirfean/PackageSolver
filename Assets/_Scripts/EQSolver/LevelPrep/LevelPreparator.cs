@@ -1,7 +1,4 @@
 ﻿using Assets._Scripts.Data;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public static class LevelPreparator
 {
@@ -22,8 +19,8 @@ public static class LevelPreparator
 
     public static void PrepareLevel()
     {
-        
-    } 
+
+    }
 
 
 

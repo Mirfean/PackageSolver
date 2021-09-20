@@ -1,6 +1,4 @@
 ﻿using Assets._Scripts.Data;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelsDataManager : MonoBehaviour
@@ -16,6 +14,6 @@ public class LevelsDataManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
-using static Assets._Scripts.General.BaseMethodsAndroid;
 using static Assets._Scripts.General.BaseMethods;
+using static Assets._Scripts.General.BaseMethodsAndroid;
 
 public class MovingPuzzleOnGrid : MonoBehaviour
 {
-
     public GameObject target;
     public GameObject Structure;
     public Vector3 relative_coords;
-    Vector3 truePos;
+    private Vector3 truePos;
     public float gridsize;
     public float gridModif;
     [SerializeField] private Vector2 gridModif2;
@@ -22,12 +21,12 @@ public class MovingPuzzleOnGrid : MonoBehaviour
     public GridSystem gridSystem;
     public PuzzleMaster puzzleMaster;
 
-    float touchTimer;
-    float timeToRotate;
-    bool moveOfPuzzle;
+    private float touchTimer;
+    private float timeToRotate;
+    private bool moveOfPuzzle;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         moveOfPuzzle = false;
         timeToRotate = 0.2f;
@@ -42,20 +41,17 @@ public class MovingPuzzleOnGrid : MonoBehaviour
         }
     }
 
-
     // Update is called once per frame
-    void LateUpdate()
+    private void LateUpdate()
     {
         //truePos.x = Mathf.Floor(target.transform.position.x / gridsize) * gridsize;
         //truePos.y = Mathf.Floor(target.transform.position.y / gridsize) * gridsize;
         //structure.transform.position = truePos;
     }
 
-    
-    void PuzzleMove()
+    private void PuzzleMove()
     {
         Touch touch = Input.GetTouch(0);
-        
 
         // Handle finger movements based on TouchPhase
         switch (touch.phase)
@@ -101,7 +97,6 @@ public class MovingPuzzleOnGrid : MonoBehaviour
                         Structure.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
                         moveOfPuzzle = true;
                     }
-
                 }
                 break;
 
@@ -132,42 +127,26 @@ public class MovingPuzzleOnGrid : MonoBehaviour
                 puzzleMaster.WinCondition();
                 break;
         }
-
-
     }
 
     private void PuzzleGhosting(GameObject gameObjectToGhost)
     {
-        Ghost.transform.position = CorrectToGrid(Structure.transform.position + new Vector3(0f,0f,1f));
+        Ghost.transform.position = CorrectToGrid(Structure.transform.position + new Vector3(0f, 0f, 1f));
     }
 
     //Alternative way to Grid attach after touch ended
-    Vector3 CorrectToGrid(Vector3 pos)
+    private Vector3 CorrectToGrid(Vector3 pos)
     {
         Debug.Log($" pos.x before {pos.x}");
         //pos.x = RoundToGridSupreme(gridsize, pos.x) + gridModif;
-        pos.x = RoundToGridSupreme(gridsize, pos.x) + gridModif2.x;
+        pos.x = RoundValue(gridsize, pos.x) + gridModif2.x;
         Debug.Log($" pos.x after {pos.x}");
         Debug.Log($" pos.y after {pos.y}");
-        pos.y = RoundToGridSupreme(gridsize, pos.y) + gridModif2.y;
+        pos.y = RoundValue(gridsize, pos.y) + gridModif2.y;
         //pos.y = RoundToGridSupreme(gridsize, pos.y) + gridModif;
         Debug.Log($" pos.y after {pos.y}");
         Debug.Log($"pos.x {pos.x} and pos.y {pos.y}");
-        
+
         return pos;
     }
-
-    
-    Vector3 CorrectToTarget()
-    {
-        Vector3 v3 = new Vector3();
-
-
-        //TODO
-
-
-        return v3;
-    }
-    
-
 }
