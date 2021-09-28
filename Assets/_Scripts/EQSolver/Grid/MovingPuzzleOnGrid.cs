@@ -19,7 +19,7 @@ public class MovingPuzzleOnGrid : MonoBehaviour
     public static string PuzzleTag = "PuzzleElement";
 
     public GridSystem gridSystem;
-    public PuzzleMaster puzzleMaster;
+    public GameConditioner puzzleMaster;
 
     private float touchTimer;
     private float timeToRotate;

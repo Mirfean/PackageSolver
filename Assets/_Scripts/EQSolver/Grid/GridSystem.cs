@@ -9,6 +9,7 @@ public class GridSystem : MonoBehaviour
     public List<_Tile> ListGrid;
     public bool Win;
 
+    //Importart to create puzzle grid
     public Level level;
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class GridSystem : MonoBehaviour
         Win = false;
 
         //Level
+        level = CurrentGameData.level;
 
         //Grid
         List<Transform> ActiveTiles = new List<Transform>(GetComponentsInChildren<Transform>());
@@ -72,10 +74,10 @@ public class GridSystem : MonoBehaviour
         {
             foreach (_Tile GT in ListGrid)
             {
-                if (GT.FieldType == 0)
+                if (GT.fieldType == 0)
                 {
                     //Debug.Log($"{GT} field type {GT.FieldType} is changing to {temp}");
-                    GT.FieldType = temp;
+                    GT.fieldType = temp;
                     GT.AdaptByFieldType();
                     break;
                 }

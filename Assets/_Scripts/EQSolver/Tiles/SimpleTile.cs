@@ -1,4 +1,5 @@
-﻿using Assets._Scripts.EQSolver;
+﻿using Assets._Scripts.Enums;
+using Assets._Scripts.EQSolver;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,11 +15,8 @@ public class SimpleTile : _Tile
         {
             if (child.gameObject.GetComponent<Checker>() != null) singleGridCheckers.Add(child.gameObject.GetComponent<Checker>());
         }
-        Debug.Log($"Checkers: {singleGridCheckers.Count}");
-        foreach (Checker x in singleGridCheckers)
-        {
-            Debug.Log(x);
-        }
+        //Debug.Log($"Checkers: {singleGridCheckers.Count}");
+        
     }
 
     public override bool CheckFullness()
@@ -39,7 +37,7 @@ public class SimpleTile : _Tile
             Status = FillStatus.FULL;
         }
         else Status = FillStatus.EMPTY;
-        Debug.Log($"{transform.gameObject.name} is {Status}");
+        //Debug.Log($"{transform.gameObject.name} is {Status}");
         return result;
     }
 
@@ -55,6 +53,19 @@ public class SimpleTile : _Tile
         }
         Status = FillStatus.FULL;
         return true;
+    }
+
+    public override void AdaptByFieldType()
+    {
+        int fieldNumberValue = (int)fieldType;
+        if (fieldNumberValue == 0 || fieldNumberValue == 999)
+        {
+            transform.gameObject.SetActive(false);
+        }
+        else if(fieldNumberValue != 1234)
+        {
+            Debug.LogError("Yo man, somethings wrong!!!");
+        }
     }
 
 }

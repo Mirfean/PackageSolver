@@ -11,22 +11,13 @@ namespace Assets._Scripts.Data
     [Serializable, XmlType("AllLevels")]
     public class LevelsDataFromXml
     {
-        private static XmlTest xmlTest;
+        private static LevelsDispacher levelsDispacher;
 
-        //Contains all levels data
-        //[XmlArray("Levels"), XmlArrayItem("Level")]
-        //[XmlArrayItem("Level")]
         [XmlArray("Levels")]
-        static public List<Level> LevelsList = new List<Level>();
+        public static List<Level> LevelsList = new List<Level>();
 
-        private string pathToFile = Application.persistentDataPath + "/LevelList.xml";
+        private static string pathToFile = Application.persistentDataPath + "/LevelList.xml";
 
-        //To serialize
-        //XmlDocument xmlDoc = new XmlDocument();
-        //XDocument xDoc = XDocument.Load(Application.dataPath + "/XMLs/LevelList.xml");
-
-        //Application.persistentDataPath -> C:\Users\Mirfean\AppData\LocalLow\Purple Duck\EqSolver
-        //levelsDataFromXml.Save(Path.Combine(Application.persistentDataPath, "LevelList.xml"));
         public void Save(string path)
         {
             var serializer = new XmlSerializer(typeof(LevelsDataFromXml));
@@ -36,25 +27,17 @@ namespace Assets._Scripts.Data
 
         public static LevelsDataFromXml Load(string path)
         {
-            xmlTest = new XmlTest();
+            levelsDispacher = new LevelsDispacher();
             Debug.Log("xmlTest " + LevelsInfo.ListOfLevels);
-
             Debug.Log("Loading levels...");
             var serializer = new XmlSerializer(typeof(LevelsDataFromXml));
             var stream = new FileStream(path, FileMode.Open);
-            LevelsDataFromXml xyz = serializer.Deserialize(stream) as LevelsDataFromXml;
-            return xyz;
+            LevelsDataFromXml data = serializer.Deserialize(stream) as LevelsDataFromXml;
+            return data;
         }
 
         public static Level GetLevelById(int id)
         {
-            /*foreach(Level level in LevelsList)
-            {
-                if (level.levelNumber == id)
-                {
-                    return level;
-                }
-            } */
             Level level;
             try
             {

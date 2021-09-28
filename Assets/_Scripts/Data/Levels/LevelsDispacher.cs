@@ -11,7 +11,7 @@ using UnityEngine;
 namespace Assets._Scripts.Levels
 {
     [XmlRoot("Level")]
-    internal class XmlTest
+    internal class LevelsDispacher
     {
         private XmlDocument xmlDoc = new XmlDocument();
         private XDocument xDoc = XDocument.Load(Application.persistentDataPath + "/LevelList.xml");
@@ -26,13 +26,9 @@ namespace Assets._Scripts.Levels
 
         private List<string> puzzles;
 
-        public XmlTest()
+        public LevelsDispacher()
         {
             xmlDoc.Load(Application.dataPath + "/XMLs/LevelList.xml");
-            //XmlElement elem = (XmlElement)trefel.DocumentElement.GetAttribute("LevelList");
-            //string elem2 = trefel
-            //Debug.Log(elem.GetAttribute("number"));
-            //Debug.Log(elem2);
             XElement levelList = xDoc.Element("AllLevels").Element("LevelsList");
 
             //Level(int n, LevelType lT, string descript, FieldType[] fields, List<String> puzzles)
@@ -40,7 +36,7 @@ namespace Assets._Scripts.Levels
             {
                 foreach (XElement x in levelList.Elements("Level"))
                 {
-                    Debug.Log("number of elements " + LevelsInfo.ListOfLevels.Count());
+                    
                     LevelsInfo.ListOfLevels.Add(int.Parse(x.Element("id").Value),
                         new Level(
                         int.Parse(x.Element("id").Value),
@@ -50,7 +46,7 @@ namespace Assets._Scripts.Levels
                         GetPuzzles(x)
 
                         ));
-                    Debug.Log(LevelsInfo.ListOfLevels);
+                    //Debug.Log("number of elements " + LevelsInfo.ListOfLevels.Count());
                 }
             }
         }
@@ -60,13 +56,12 @@ namespace Assets._Scripts.Levels
             List<FieldType> temp = new List<FieldType>();
 
             //Debug.Log("fieldType number "+ xxx.Count());
-            Debug.Log(x.Element("fieldsType").Descendants().Count());
+            //Debug.Log(x.Element("fieldsType").Descendants().Count());
 
             foreach (XElement xEle in x.Element("fieldsType").Descendants())
             {
                 temp.Add((FieldType)Enum.Parse(typeof(FieldType), xEle.Value));
             }
-            Debug.Log("List of FieldTypes " + temp.Count);
             return temp;
         }
 
@@ -77,7 +72,7 @@ namespace Assets._Scripts.Levels
             {
                 temp.Add(xEle.Value);
             }
-            Debug.Log("List of puzzles " + temp.Count);
+            //Debug.Log("List of puzzles " + temp.Count);
             return temp;
         }
     }

@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class PuzzleSpawner : MonoBehaviour
 {
-    private XmlTest xmlTest;
+    private LevelsDispacher xmlTest;
     private string pathOfPrefab;
 
     // Start is called before the first frame update
     private void Start()
     {
         string prefabName = "PuzzleDuck";
-        xmlTest = new XmlTest();
+        xmlTest = new LevelsDispacher();
         //pathOfPrefab = Application.dataPath + "/EQSolver/";
 
         //GameObject _go = Resources.Load("EQSolver/PuzzleDuck") as GameObject;

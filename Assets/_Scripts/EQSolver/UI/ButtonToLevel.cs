@@ -6,9 +6,32 @@ using UnityEngine.SceneManagement;
 /// 
 /// 
 /// </summary>
-public class ButtonToLevel : MonoBehaviour, Button_
+public class ButtonToLevel : MonoBehaviour, IButton
 {
     public bool unlocked;
+    public bool Unlocked
+    {
+        get
+        {
+            return unlocked;
+        }
+        set
+        {
+            unlocked = value;
+            if (unlocked)
+            {
+                Debug.Log("unlocking " + level_id);
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteUnlocked;
+                this.gameObject.GetComponent<BoxCollider>().enabled = true;
+            }
+            else
+            {
+                Debug.Log("Setting off nr " + level_id);
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteLocked;
+                this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+        }
+    }
     public int level_id;
     public Level level;
     public Sprite spriteUnlocked;
@@ -17,19 +40,6 @@ public class ButtonToLevel : MonoBehaviour, Button_
     // Start is called before the first frame update
     private void Start()
     {
-        //Sprite change
-        if (unlocked)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteUnlocked;
-            this.gameObject.GetComponent<BoxCollider>().enabled = true;
-        }
-        else
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteLocked;
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
-        }
-
-        //Get level from loaded list
         GetLevelFromId();
     }
 
@@ -47,5 +57,12 @@ public class ButtonToLevel : MonoBehaviour, Button_
     public void GetLevelFromId()
     {
         level = LevelsDataFromXml.GetLevelById(level_id);
+    }
+
+    public void UnlockMe(bool value)
+    {
+        unlocked = value;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteUnlocked;
+        this.gameObject.GetComponent<BoxCollider>().enabled = true;
     }
 }

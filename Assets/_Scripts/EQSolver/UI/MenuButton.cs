@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuButton : MonoBehaviour, Button_
+public class MenuButton : MonoBehaviour, IButton
 {
     public ButtonFunction buttonFunction;
 

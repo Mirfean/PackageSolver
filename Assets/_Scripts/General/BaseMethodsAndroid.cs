@@ -25,17 +25,17 @@ namespace Assets._Scripts.General
             //Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.name);
                 if (hit.collider != null)
                 {
-                    Debug.Log("Touched " + hit.collider.gameObject.name);
+                    //Debug.Log("Touched " + hit.collider.gameObject.name);
                     return hit.collider.gameObject;
 
                 }
-                Debug.Log("Touchn't");
+                //Debug.Log("Touchn't");
                 return null;
             }
-            Debug.Log("Touchn't Raycast");
+            //Debug.Log("Touchn't Raycast");
             return null;
         }
 
@@ -46,12 +46,12 @@ namespace Assets._Scripts.General
             {
                 if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
-                    Debug.Log($"Start touching {ObjectTag}");
+                    //Debug.Log($"Start touching {ObjectTag}");
                     return true;
                 }
                 if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
-                    Debug.Log($"Stop touching {ObjectTag}");
+                    //Debug.Log($"Stop touching {ObjectTag}");
                     return false;
                 }
                 return true;
@@ -97,22 +97,22 @@ namespace Assets._Scripts.General
                     //Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
                     if (Physics.Raycast(ray, out hit))
                     {
-                        Debug.Log(hit.transform.name);
+                        //Debug.Log(hit.transform.name);
                         if (hit.collider != null && hit.collider.CompareTag(ObjectTag))
                         {
 
                             GameObject touchedObject = hit.transform.gameObject;
-                            Debug.Log("Touched " + touchedObject.transform.name);
+                            //Debug.Log("Touched " + touchedObject.transform.name);
                             return true;
 
                         }
-                        Debug.Log("Touchn't");
+                        //Debug.Log("Touchn't");
                         return false;
                     }
                 }
 
             }
-            Debug.Log("Touchn't");
+            //Debug.Log("Touchn't");
             return false;
         }
 
@@ -131,13 +131,13 @@ namespace Assets._Scripts.General
                         {
                             return touch;
                         }
-                        Debug.Log("Wrong touching");
+                        //Debug.Log("Wrong touching");
                         return null;
                     }
                 }
 
             }
-            Debug.Log("No touching");
+            //Debug.Log("No touching");
             return null;
         }
 
@@ -156,13 +156,13 @@ namespace Assets._Scripts.General
                         {
                             return hit;
                         }
-                        Debug.Log("Wrong touching");
+                        //Debug.Log("Wrong touching");
                         return null;
                     }
                 }
 
             }
-            Debug.Log("No touching");
+            //Debug.Log("No touching");
             return null;
         }
 
@@ -177,10 +177,10 @@ namespace Assets._Scripts.General
                 {
                     if (hit.collider.tag == ObjectTag)
                     {
-                        Debug.Log("I HIT " + ObjectTag);
+                        //Debug.Log("I HIT " + ObjectTag);
                         return true;
                     }
-                    else { Debug.Log("dupa :/"); }
+                    else { Debug.Log(""); }
                 }
                 else { Debug.Log("Nothing clicked"); }
             }

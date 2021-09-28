@@ -47,23 +47,32 @@ public static class CurrentGameData
     //Store in .elo
     public static bool SoundOn;
 
-    public static Dictionary<int, bool> UnlockedLevels;
+    public static HashSet<int> UnlockedLevels;
 
 
     static CurrentGameData()
     {
         SoundOn = false;
-        UnlockedLevels = new Dictionary<int, bool>();
-        UnlockedLevels.Add(1, true);
+        UnlockedLevels = new HashSet<int>();
+        // ???
+        UnlockedLevels.Add(1);
     }
 
-    private static void UnlockLevel()
+    public static void UnlockLevel(int levelNumber)
     {
-    }
-
-    private static void UnlockNextLevel()
-    {
-        UnlockedLevels.Add(level.levelNumber + 1, true);
+        UnlockedLevels.Add(levelNumber);
         SaveSystem.SavePlayer();
+    }
+
+    public static void UnlockLevel()
+    {
+        UnlockedLevels.Add(level.levelNumber);
+        SaveSystem.SavePlayer();
+    }
+
+    public static void UnlockNextLevel()
+    {
+        //UnlockedLevels.Add();
+        SaveSystem.SavePlayer(level.levelNumber+1);
     }
 }

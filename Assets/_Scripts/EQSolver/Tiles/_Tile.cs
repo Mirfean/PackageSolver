@@ -6,7 +6,7 @@ public class _Tile : MonoBehaviour
 {
 
     public FillStatus Status { get; protected set; }
-    public FieldType FieldType { get; set; }
+    public FieldType fieldType { get; set; }
 
     public void ChangeStatus()
     {

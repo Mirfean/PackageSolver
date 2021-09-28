@@ -21,7 +21,7 @@ using UnityEngine.SceneManagement;
 public class PlayerData
 {
     public bool SoundOn { get; set; }
-    public Dictionary<int, bool> UnlockedLevels { get; set; }
+    public HashSet<int> UnlockedLevels { get; set; }
 
 
     public PlayerData()
@@ -29,12 +29,6 @@ public class PlayerData
         SoundOn = CurrentGameData.SoundOn;
         UnlockedLevels = CurrentGameData.UnlockedLevels;
         //UnlockedLevels.Add(2,false);
-    }
-
-
-    public void WyswietlDupe()
-    {
-
     }
 
 }

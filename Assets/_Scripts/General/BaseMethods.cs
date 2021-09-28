@@ -77,9 +77,11 @@ namespace Assets._Scripts.General
 
         public static float RoundValue(float gridSize, float pos)
         {
+            Debug.Log(-4.5 % 2.0);
             float modulus = pos % gridSize;
             if (modulus <= gridSize / 2) return pos - modulus;
-            return pos > 0 ? pos - modulus + gridSize : pos - modulus - gridSize;
+            return pos > 0 ? pos - modulus + gridSize : pos - modulus;
+            
         }
     }
 }

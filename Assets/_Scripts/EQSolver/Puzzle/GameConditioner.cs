@@ -1,17 +1,24 @@
 ﻿using Assets._Scripts.Enums;
 using UnityEngine;
 
-public class PuzzleMaster : MonoBehaviour
+public class GameConditioner : MonoBehaviour
 {
     private string level;
     private GameStatus gameStatus;
     public GridSystem Grid;
     public WinLevelCan WinLevelCan;
 
+    [SerializeField]
+    private GameObject gameMasterObject;
+    [SerializeField]
+    private GameMaster gameMaster;
+
     // Start is called before the first frame update
     private void Start()
     {
         Application.targetFrameRate = 100;
+
+        gameMaster = (GameMaster)FindObjectOfType(typeof(GameMaster));
 
         gameStatus = GameStatus.BeforeStart;
 
@@ -34,8 +41,7 @@ public class PuzzleMaster : MonoBehaviour
         {
             WinLevel();
 
-            //Make some magic here!!!
-            SaveSystem.SavePlayer();
+            CurrentGameData.UnlockNextLevel();
 
             Debug.Log("YEEEES");
         }
@@ -49,6 +55,8 @@ public class PuzzleMaster : MonoBehaviour
     {
         gameStatus = GameStatus.Win;
         WinLevelCan.WinAnnouncer();
-        Debug.Log("You win this level!!!");
+        Debug.Log("You won this level!!!");
     }
+
+
 }

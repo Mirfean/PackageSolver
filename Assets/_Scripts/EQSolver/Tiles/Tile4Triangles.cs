@@ -99,7 +99,7 @@ public class Tile4Triangles : _Tile
 
     void ModifyTrianglesByFieldType()
     {
-        int fieldNumberValue = (int)FieldType;
+        int fieldNumberValue = (int)fieldType;
         string valueInText = fieldNumberValue.ToString();
         if (valueInText[0] == 0 || valueInText == "999")
         {

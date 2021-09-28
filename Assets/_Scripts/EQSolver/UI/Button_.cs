@@ -1,4 +1,4 @@
-﻿public interface Button_
+﻿public interface IButton
 {
     void TaskButton();
 

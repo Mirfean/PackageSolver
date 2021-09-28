@@ -37,10 +37,10 @@ public class TriangleInTile : MonoBehaviour
         {
             if (child.gameObject.GetComponent<Checker>() != null) GridCheckers.Add(child.gameObject.GetComponent<Checker>());
         }
-        Debug.Log($"Checkers: {GridCheckers.Count}");
+        //Debug.Log($"Checkers: {GridCheckers.Count}");
         foreach (Checker x in GridCheckers)
         {
-            Debug.Log(x);
+            //Debug.Log(x);
         }
 
     }
