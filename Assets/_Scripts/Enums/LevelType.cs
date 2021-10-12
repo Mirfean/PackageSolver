@@ -6,8 +6,8 @@ namespace Assets._Scripts.Enums
     public enum LevelType
     {
         None = 0,
-        [XmlEnum(Name = "Basic4x4")]
-        Basic4x4,
+        [XmlEnum(Name = "Basic4x6")]
+        Basic4x6,
         [XmlEnum(Name = "Basic6x6")]
         Basic6x6,
         [XmlEnum(Name = "Triangles8x6")]

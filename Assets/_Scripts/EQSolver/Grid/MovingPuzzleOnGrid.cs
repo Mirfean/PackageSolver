@@ -107,7 +107,9 @@ public class MovingPuzzleOnGrid : MonoBehaviour
                 {
                     target.transform.position = TouchPosToCameraPos(touch);
 
-                    truePos = CorrectToGrid(truePos);
+                    //truePos = CorrectToGrid(truePos);
+                    //truePos = CorrectToGrid_OLD(truePos);
+                    truePos = CorrectToGrid_NEW(truePos);
 
                     //Debug.Log("After " + truePos);
                     // Structure.transform.position = Structure.transform.position + new Vector3(0, 0, 1);
@@ -147,6 +149,37 @@ public class MovingPuzzleOnGrid : MonoBehaviour
         Debug.Log($" pos.y after {pos.y}");
         Debug.Log($"pos.x {pos.x} and pos.y {pos.y}");
 
+        return pos;
+    }
+
+    private Vector3 CorrectToGrid_OLD(Vector3 pos)
+    {
+        Vector3 temp = pos;
+        temp.x -= (int)pos.x;
+        temp.y -= (int)pos.y;
+
+        Debug.Log($" pos.x before {pos.x}");
+        Debug.Log($" pos.y before {pos.y}");
+        temp.x = RoundToGrid(gridsize, temp.x);
+        temp.y = RoundToGrid(gridsize, temp.y);
+
+        pos.x = (int)pos.x + temp.x;
+        pos.y = (int)pos.y + temp.y;
+        Debug.Log($" pos.x after {pos.x}");
+        Debug.Log($" pos.y after {pos.y}");
+        return pos;
+    }
+
+    private Vector3 CorrectToGrid_NEW(Vector3 pos)
+    {
+        Vector3 temp = pos;
+        temp.x -= (int)pos.x;
+        temp.y -= (int)pos.y;
+
+        Debug.Log($" pos.x before {pos.x}");
+        Debug.Log($" pos.y before {pos.y}");
+        pos.x = RoundValue_NEW(gridsize, pos.x);
+        pos.y = RoundValue_NEW(gridsize, pos.y);
         return pos;
     }
 }

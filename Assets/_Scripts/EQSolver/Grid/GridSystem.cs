@@ -12,6 +12,9 @@ public class GridSystem : MonoBehaviour
     //Importart to create puzzle grid
     public Level level;
 
+    [SerializeField]
+    private PuzzleSpawner puzzleSpawner;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -28,6 +31,7 @@ public class GridSystem : MonoBehaviour
         CreateListOfActiveGrids(ActiveTiles);
 
         //Puzzles
+        puzzleSpawner.SpawnPuzzles(level.puzzleToLevel);
     }
 
     private void OnLevelWasLoaded(int level)
